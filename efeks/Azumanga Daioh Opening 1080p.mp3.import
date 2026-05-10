@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bqy31x55e78yl"
+path="res://.godot/imported/Azumanga Daioh Opening 1080p.mp3-60e30a72aab887145c64cac2646c1ff1.mp3str"
+
+[deps]
+
+source_file="res://efeks/Azumanga Daioh Opening 1080p.mp3"
+dest_files=["res://.godot/imported/Azumanga Daioh Opening 1080p.mp3-60e30a72aab887145c64cac2646c1ff1.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

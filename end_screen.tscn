@@ -1,0 +1,76 @@
+[gd_scene load_steps=6 format=3 uid="uid://dg7pxy6lwe0e8"]
+
+[ext_resource type="Script" uid="uid://tjonpnn5x27" path="res://canvas_layer.gd" id="1_xu7hh"]
+[ext_resource type="Texture2D" uid="uid://b5nx056gpjwmo" path="res://Hello There #jrt #jackrussellterrier #jackrussell #dog #dogs #dogsofinstagram #instadog.jpg" id="2_pmjk2"]
+[ext_resource type="Theme" uid="uid://dnnaot4v7auf6" path="res://new_theme.tres" id="3_d75mr"]
+[ext_resource type="AudioStream" uid="uid://diq8d6lrvfnfc" path="res://efeks/Azumanga Daioh - Ending Theme.mp3" id="4_pmjk2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_be1gp"]
+font_size = 86
+outline_size = 15
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 0
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_xu7hh")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1151.0
+offset_bottom = 651.0
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.938
+anchor_bottom = 1.659
+offset_left = -17.0
+offset_top = -11.0
+offset_right = 96.3619
+offset_bottom = -426.009
+texture = ExtResource("2_pmjk2")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 52.0
+offset_top = 308.0
+offset_right = -845.0
+offset_bottom = -46.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Main Menu" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme = ExtResource("3_d75mr")
+text = "Main Menu"
+
+[node name="Quit" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("3_d75mr")
+text = "Quit"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Control"]
+stream = ExtResource("4_pmjk2")
+autoplay = true
+parameters/looping = true
+
+[node name="Label" type="Label" parent="."]
+offset_left = 243.0
+offset_top = 3.0
+offset_right = 901.0
+offset_bottom = 157.0
+text = "Kraj igre"
+label_settings = SubResource("LabelSettings_be1gp")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Control/VBoxContainer/Main Menu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

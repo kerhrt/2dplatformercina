@@ -1,0 +1,102 @@
+[gd_scene load_steps=8 format=3 uid="uid://dmvojihmtigdo"]
+
+[ext_resource type="Script" uid="uid://vfrrm8gqcfim" path="res://main_menu.gd" id="1_fu7sn"]
+[ext_resource type="Texture2D" uid="uid://b1qlylq5dnohp" path="res://oliver.png" id="2_jix8l"]
+[ext_resource type="Theme" uid="uid://dnnaot4v7auf6" path="res://new_theme.tres" id="3_glbon"]
+[ext_resource type="AudioStream" uid="uid://bixnuoyk1llo6" path="res://efeks/Ghetto Smosh Sound Effect 2.mp3" id="4_glbon"]
+[ext_resource type="AudioStream" uid="uid://bqy31x55e78yl" path="res://efeks/Azumanga Daioh Opening 1080p.mp3" id="4_jix8l"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_qe12f"]
+font_size = 21
+font_color = Color(0.141176, 0.27451, 0.435294, 1)
+outline_size = 1
+outline_color = Color(0.295867, 0.295866, 0.295866, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_nlkkf"]
+font_size = 51
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_fu7sn")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 324.0
+offset_right = -1152.0
+offset_bottom = -324.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_top = -323.0
+offset_right = 1154.0
+offset_bottom = 325.0
+texture = ExtResource("2_jix8l")
+expand_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 63.0
+offset_top = -66.0
+offset_right = 331.0
+offset_bottom = 259.0
+grow_vertical = 2
+
+[node name="Play" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("3_glbon")
+text = "Play"
+
+[node name="Label" type="Label" parent="Control/VBoxContainer/Play"]
+layout_mode = 2
+offset_left = 89.0
+offset_top = 41.0
+offset_right = 357.0
+offset_bottom = 71.0
+label_settings = SubResource("LabelSettings_qe12f")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Control/VBoxContainer/Play"]
+stream = ExtResource("4_glbon")
+volume_db = 2.205
+
+[node name="Quit" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("3_glbon")
+text = "Quit
+"
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = -324.0
+offset_right = 1153.0
+offset_bottom = -179.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"HeaderLarge"
+text = "Oliverova Avantura"
+label_settings = SubResource("LabelSettings_nlkkf")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Control"]
+stream = ExtResource("4_jix8l")
+autoplay = true
+parameters/looping = true
+
+[connection signal="pressed" from="Control/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
